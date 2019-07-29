@@ -33,11 +33,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
         $this->laravelNotify($instance);
     }
-
     protected $fillable = [
-        'name', 'email', 'password', 'introduction', 'avatar',
+        'name', 'phone', 'email', 'password', 'introduction', 'avatar',
     ];
-
     protected $hidden = [
         'password', 'remember_token',
     ];

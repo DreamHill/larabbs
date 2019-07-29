@@ -32,7 +32,7 @@ return [
     |
     */
 
-    'subtype' => env('API_SUBTYPE', 'ASIA_SUNRISE'),
+    'subtype' => env('API_SUBTYPE', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +57,7 @@ return [
     |
     */
 
-    'prefix' => env('API_PREFIX', 'api'),
+    'prefix' => env('API_PREFIX', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'domain' => env('API_DOMAIN', 'api.foodshores.com'),
+    'domain' => env('API_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'name' => env('API_NAME', 'foodshores.com'),
+    'name' => env('API_NAME', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'debug' => env('API_DEBUG', true),
+    'debug' => env('API_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -228,5 +228,19 @@ return [
         ],
 
     ],
-
+    /*
+     * 接口频率限制
+     */
+    'rate_limits' => [
+        // 访问频率限制，次数/分钟
+        'access' => [
+            'expires' => env('RATE_LIMITS_EXPIRES', 1),
+            'limit'  => env('RATE_LIMITS', 60),
+        ],
+        // 登录相关，次数/分钟
+        'sign' => [
+            'expires' => env('SIGN_RATE_LIMITS_EXPIRES', 1),
+            'limit'  => env('SIGN_RATE_LIMITS', 10),
+        ],
+    ],
 ];
