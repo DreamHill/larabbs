@@ -29,4 +29,10 @@ phpinfo();
 //  $driver = Socialite::driver('weixin');
 //  $driver->setOpenId($openID);
 //  $oauthUser = $driver->userFromToken($accessToken);
+
+// $code = '081q3COf0KGYKt1fIsMf0FwROf0q3COo';
+$driver = Socialite::driver('weixin');
+$response = $driver->getAccessTokenResponse('081q3COf0KGYKt1fIsMf0FwROf0q3COo');
+$driver->setOpenId($response['openid']);
+$oauthUser = $driver->userFromToken($response['access_token']);
 ?>

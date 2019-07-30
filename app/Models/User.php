@@ -16,6 +16,7 @@ class User extends Authenticatable implements MustVerifyEmailContract, JWTSubjec
     use MustVerifyEmailTrait;
     use Traits\ActiveUserHelper;
     use Traits\LastActivedAtHelper;
+    use Traits\HashIdHelper;
 
     use Notifiable {
         notify as protected laravelNotify;
@@ -97,4 +98,16 @@ class User extends Authenticatable implements MustVerifyEmailContract, JWTSubjec
     {
         return [];
     }
+    // public function getRouteKey()
+    // {
+    //      return \Hashids::encode($this->id);
+    // //   //return $this->getAttribute($this->getRouteKeyName());
+    // }
+
+    // public function resolveRouteBinding($value)
+    // {
+    //     $value = current(\Hashids::decode($value));
+    //     return $this->where($this->getRouteKeyName(), $value)->first();
+    // }
+
 }
